@@ -1,0 +1,72 @@
+<f:layout name="Default"/>
+
+This template displays a NEW form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+New.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+    <h1>Neuer Eintrag</h1>
+    <f:flashMessages/>
+    <div class="typo3-fullDoc-x">
+        <div id="dynamic-map-doc">
+            <div id="typo3-inner-docbody-x">
+                <f:render partial="FormErrors"/>
+
+                <f:form action="create" enctype="multipart/form-data" name="newItem" object="{newItem}">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="selectStage">Stage Wählen</label>
+                                <f:form.select property="stage" class="form-control" options="{stages}"
+                                               prependOptionLabel="Bitte wählen" prependOptionValue="{getStage}"
+                                               optionLabelField="name"
+                                               id="selectStage"/>
+                            </div>
+                            <div class="stage_outer">
+                                <div id="buehne" style='width:{STAGE.width}px;height:{STAGE.height}px'>
+                                    <f:for each="{stages}" as="stage">
+                                        <div id="stageImage_{stage.uid}" class="stageImage"
+                                        <f:if condition="{0:stage.uid}=={0:item.stage}">style="display:block;"</f:if>
+                                        data-stage-width="{stage.width}" data-stage-height="{stage.height}">
+                                        <f:image src="{stage.image.originalResource.publicUrl}" width="{stage.width}"
+                                                 height="{stage.height}"/>
+                                </div>
+
+
+
+                                </f:for>
+
+                                <div class='bl dynamic_item draggable'
+                                     style="left:{item.positionX}px;top:{item.positionY}px"></div>
+                            </div>
+                        </div>
+                        <p style="text-align:center">Links: <span id="posL">{item.positionX}</span>&nbsp;|&nbsp;Oben:
+                            <span
+                                    id="posT">{item.positionY}</span></p>
+                    </div>
+                    <div class="col-md-6">
+
+
+                        <f:render partial="Item/FormFields"/>
+
+                        <div class="form-group">
+                            <f:form.submit value="Neuer Eintrag" class="btn btn-success"/>
+                        </div>
+                    </div>
+            </div>
+
+            </f:form>
+
+        </div>
+    </div>
+    </div>
+
+
+</f:section>

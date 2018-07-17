@@ -1,0 +1,24 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+
+<f:section name="main">
+<h1>Edit Item</h1>
+
+<f:flashMessages />
+
+<f:render partial="FormErrors" arguments="{object:Item}" />
+
+<f:form action="update" name="item" object="{item}" >
+rrrtest
+    <f:form.select property="stage" id="selectStage">
+        <f:for each="{stages}" as="stage">
+            <option value="{stage.uid}"  <f:if condition="{Item.stage}=={stage.uid}"> selected</f:if>>{stage.name}</option>
+        </f:for>
+    </f:form.select>
+
+<f:render partial="Item/FormFields" arguments="{item:item}" />
+	<f:form.submit value="Save" />
+</f:form>
+</f:section>
+</html>

@@ -1,0 +1,76 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:form.hidden property="positionX" id="positionX"/>
+<f:form.hidden property="positionY" id="positionY"/>
+<div class="form-group">
+    <label for="showInFe">
+        Aktiviert
+    </label><br/>
+    <f:form.checkbox property="showInFe" class="form-control" value="1"/>
+</div>
+
+<div class="select-icon">
+    <!--<label for="image-icon">Image Icon <input type="radio" name="" id="image-icon"> </label>-->
+    <label for="number-icon">Icon <!--<input type="radio" name="" id="number-icon">--></label>
+</div>
+
+<div class="row number-icon">
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="itemNumber">
+                <f:translate key="tx_dynamicmap_domain_model_item.number"/>
+            </label><br/>
+            <f:form.textfield property="number" id="itemNumber" class="form-control"/>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="circleBgColor">
+                Eintrag Farbe
+            </label><br/>
+            <f:form.textfield property="circleBgColor" id="circleBgColor"
+                              class="jscolor {closable:true,closeText:'Schließen!'} form-control"
+            />
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="circleBorderColor">
+                Rahmenfarbe
+            </label><br/>
+            <f:form.textfield property="circleBorderColor" id="circleBorderColor"
+                              class="jscolor {closable:true,closeText:'Close me!'} form-control"/>
+        </div>
+    </div>
+</div>
+<!--
+<div class="row image-icon">
+    <div class="form-group">
+        <label for="item-mage">
+            <f:translate key="tx_dynamicmap_domain_model_item.image"/>
+        </label><br/>
+        <f:form.upload name="image" class="form-control" id="item-image"/>
+    </div>
+</div>
+-->
+<div class="form-group">
+    <label for="name">
+        <f:translate key="tx_dynamicmap_domain_model_item.name"/>
+    </label><br/>
+    <f:form.textfield property="name" class="form-control"/>
+</div>
+
+<div class="form-group">
+    <label for="description">
+        <f:translate key="tx_dynamicmap_domain_model_item.description"/>
+    </label><br/>
+    <f:form.textarea property="description" cols="40" rows="15" class="form-control"/>
+</div>
+
+<div class="form-group">
+    <label for="link">
+        <f:translate key="tx_dynamicmap_domain_model_item.link"/>
+    </label><br/>
+    <f:form.textfield property="link" class="form-control"/>
+</div>
+
+</html>

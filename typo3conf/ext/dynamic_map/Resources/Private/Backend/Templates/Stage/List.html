@@ -1,0 +1,72 @@
+{namespace core=TYPO3\CMS\Core\ViewHelpers}
+<f:layout name="Default"/>
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+    <h1>Listing for Stages</h1>
+
+    <f:flashMessages/>
+    <table class="tx_dynamicmap table table-bordered">
+        <tr>
+            <th>
+                <f:translate key="tx_dynamicmap_domain_model_stage.name"/>
+            </th>
+            <th>
+                <f:translate key="tx_dynamicmap_domain_model_stage.image"/>
+            </th>
+            <th>
+                <f:translate key="tx_dynamicmap_domain_model_stage.width"/>
+            </th>
+            <th>
+                <f:translate key="tx_dynamicmap_domain_model_stage.height"/>
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        <f:for each="{stages}" as="stage">
+            <tr>
+                <td>
+                    <f:link.action action="show" arguments="{stage : stage}"> {stage.name}</f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{stage : stage}">
+                        {stage.image.originalResource.name}
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{stage : stage}"> {stage.width}</f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{stage : stage}"> {stage.height}</f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="edit" arguments="{stage : stage}">Edit</f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="delete" arguments="{stage : stage}">Delete</f:link.action>
+                </td>
+            </tr>
+        </f:for>
+    </table>
+    <div class="form-group">
+
+        <f:link.action action="new" class="btn btn-success">Neue Bühne erstellen</f:link.action>
+    </div>
+
+</f:section>
+
+
+
+
+

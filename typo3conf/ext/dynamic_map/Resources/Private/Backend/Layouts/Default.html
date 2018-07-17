@@ -1,0 +1,41 @@
+{namespace core=TYPO3\CMS\Core\ViewHelpers}
+<f:be.container>
+	<div class="typo3-fullDoc">
+		<div id="typo3-docheader">
+			<div class="typo3-docheader-functions">
+				<div class="left form-group">
+					<f:be.buttons.csh />
+					<f:be.menus.actionMenu>
+						<f:be.menus.actionMenuItem label="Maps Overview" controller="" action="list" />
+						<f:be.menus.actionMenuItem label="new Stage" action="new" controller="Stage" />
+								<f:be.menus.actionMenuItem label="new Item" action="new" controller="Item" />
+					</f:be.menus.actionMenu>
+				</div>
+				<div class="right">
+					<f:be.pagePath />
+					<f:be.pageInfo />
+				</div>
+			</div>
+			<div class="typo3-docheader-buttons">
+				<div class="left">
+
+				</div>
+				<div class="right">
+					<f:be.buttons.shortcut />
+					<a href="#" class="btn btn-default btn-sm" onClick="location.reload();"
+					>
+
+						<core:icon identifier="action-system-delete"/>
+					</a>
+				</div>
+			</div>
+
+		</div>
+		<div id="typo3-docbody">
+			<div id="typo3-inner-docbody">
+				<f:flashMessages />
+				<f:render section="content" />
+			</div>
+		</div>
+	</div>
+</f:be.container>

@@ -1,0 +1,131 @@
+.stage_outer {
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    border: 0px solid #29e;
+    padding: 0px;
+}
+
+#buehne {
+
+    background-color: #efefef;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+
+}
+
+.dynamic_item {
+    background: #29e;
+    width: 50px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    text-align: center;
+    padding: 7px;
+    font-weight: bold;
+    border: 2px solid #ddd;
+    cursor: move;
+}
+
+.stageImage {
+    display: none;
+    position: relative;
+    z-index: 1;
+}
+
+.stageImage img {
+    border: 1px solid #f0f0f0;
+}
+
+#typo3-docbody {
+    background-color: #fff;
+    top: 90px !important;
+}
+
+#typo3-docheader .typo3-docheader-buttons {
+    height: 40px !important;
+}
+
+#typo3-docheader .typo3-docheader-functions {
+    height: 38px !important;
+    line-height: 48px !important;
+}
+
+#typo3-docheader .typo3-docheader-functions select {
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+}
+
+.stage-container {
+    width: 100%;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+
+.stage-image-container .stage-image {
+    width: 60%;
+    float: left;
+
+}
+
+.stage-image-container .meta-data {
+    width: 40%;
+    float: left;
+    padding-top: 2rem;
+}
+
+.beuhne-fe {
+    margin-left: 0 !important;
+}
+
+.beuhne-fe .dynamic_item {
+    cursor: pointer !important;
+}
+
+.item-link {
+    color: #004 !important;
+}
+
+.dynamic-map-lightbox {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 101%;
+
+    opacity: .99;
+    z-index: 999999;
+
+}
+.dynamic-map-lightbox-inner{
+    background-color: #fff;
+    color: #000;
+    margin: auto;
+    width: 100%;
+    opacity: 1;
+    padding: 1.55%;
+    border: 1px solid #bbb;
+    /* height: 92%; */
+    max-width: 600px;
+    min-height: 400px;
+    margin-top: 10%;
+    position: relative;
+}
+.close-btn{
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    border-radius: 50%;
+    padding: 4px 11px;
+    font-weight: bold;
+    color: #777;
+
+
+}

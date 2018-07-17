@@ -1,0 +1,51 @@
+<f:layout name="Default"/>
+
+This template displays a NEW form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+New.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+    <h1>New Stage</h1>
+
+    <f:flashMessages/>
+
+    <f:render partial="FormErrors"/>
+
+    <f:form action="create" enctype="multipart/form-data" name="newStage" object="{newStage}">
+        <div class="form-group">
+            <label for="name">
+                <f:translate key="tx_dynamicmap_domain_model_stage.name"/>
+            </label><br/>
+            <f:form.textfield property="name" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="image">
+                <f:translate key="tx_dynamicmap_domain_model_stage.image"/>
+            </label></div>
+        <div class="form-group">
+            <f:form.upload name="image" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="width">
+                <f:translate key="tx_dynamicmap_domain_model_stage.width"/>
+            </label><br/>
+            <f:form.textfield property="width" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="height">
+                <f:translate key="tx_dynamicmap_domain_model_stage.height"/>
+            </label><br/>
+            <f:form.textfield property="height" class="form-control"/>
+        </div>
+        <div class="form-group">
+        <f:form.submit value="Neue Bühne erstellen" class="btn btn-success"/>
+        </div>
+    </f:form>
+</f:section>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <shhetTitle>
+                        Netzweber Dynamic Maps
+                    </shhetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+
+                    <switchableControllerActions>
+                        <TCEforms>
+                            <label>Dynamic Maps Actions</label>
+                            <onChange>reload</onChange>
+                            <config>
+                                <type>select</type>
+                                <items>
+                                    <numIndex index="0">
+                                        <numIndex index="0">-- Bitte wählen --</numIndex>
+                                        <numIndex index="1"></numIndex>
+                                    </numIndex>
+                                    <numIndex index="1">
+                                        <numIndex index="0">Show Map</numIndex>
+                                        <numIndex index="1">Stage->showStage</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </switchableControllerActions>
+
+
+                    <settings.stage>
+                        <TCEforms>
+                            <label>Map Wählen</label>
+                            <config>
+                                <type>select</type>
+                                <foreign_table>tx_dynamicmap_domain_model_stage</foreign_table>
+                                <minitems>1</minitems>
+                                <maxitems>1</maxitems>
+                                <multiple>0</multiple>
+                                <size>1</size>
+                                <autoSizeMax>10</autoSizeMax>
+                                <itemListStyle>Width:250px</itemListStyle>
+                            </config>
+                        </TCEforms>
+                    </settings.stage>
+
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

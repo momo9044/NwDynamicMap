@@ -1,0 +1,129 @@
+<f:layout name="Default"/>
+
+This Template is responsible for displaying a single view for a domain object
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+Show.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+
+    <f:flashMessages/>
+
+
+
+
+    <div class="stage-container">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="buehne" class="beuhne-fe" style="max-width:{stage.width}px;max-height:{stage.height}px">
+                    <f:image src="{stage.image.originalResource.publicUrl}" style="width:100%;height:auto;" class="stage-image"/>
+                    <f:for each="{items}" as="item">
+                        <div class='bl dynamic_item draggable'
+                             style="
+                 left:<f:cObject typoscriptObjectPath='lib.math' data='(100*({item.position_x}/{stage.width}))'/>%;
+                 top:<f:cObject typoscriptObjectPath='lib.math' data='(100*({item.position_y}/{stage.height}))'/>%;
+                 background:#{item.circle_bg_color};
+                 border-color:#{item.circle_border_color}"
+                        >
+                            <f:link.action action="edit" controller="Item" arguments="{item : item.uid}">{item.number}</f:link.action>
+                        </div>
+                    </f:for>
+
+                    <f:for each="{items}" as="item" iteration="iter">
+                        <div class="item-description" id="itemContent{iter.index}">
+
+                        </div>
+                    </f:for>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <br>
+                <h1>Single View for Stage [{stage.name}]</h1>
+                Breite: <span>{stage.width}</span><br>
+                Höhe: <span>{stage.height}</span><br>
+            </div>
+        </div>
+    </div>
+    <h2>Einträge</h2>
+    <table class="tx_dynamicmap table table-bordered">
+        <tr>
+            <th align="center">
+                <f:translate key="tx_dynamicmap_domain_model_item.number"/>
+            </th>
+            <th>
+                <f:translate key="tx_dynamicmap_domain_model_item.name"/>
+            </th>
+            <th>
+                <f:translate key="tx_dynamicmap_domain_model_item.description"/>
+            </th>
+            <th>
+                <f:translate key="tx_dynamicmap_domain_model_item.link"/>
+            </th>
+            <th>
+                <f:translate key="tx_dynamicmap_domain_model_item.position_x"/>
+            </th>
+            <th>
+                <f:translate key="tx_dynamicmap_domain_model_item.position_y"/>
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        <f:for each="{items}" as="item">
+
+            <tr>
+                <td align="center">
+                    <f:link.action action="show" controller="Item" arguments="{item : item.uid}" style="font-weight:900;font-size:14px"> {item.number}
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" controller="Item" arguments="{item : item.uid}"> {item.name}
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" controller="Item" arguments="{item : item}"> {item.description}
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" controller="Item" arguments="{item : item}"> {item.link}
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" controller="Item" arguments="{item : item}"> {item.position_x}
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" controller="Item" arguments="{item : item}"> {item.position_y}
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="edit" controller="Item" arguments="{item : item.uid}"><img
+                            src="/typo3conf/ext/dynamic_map/Resources/Public/Icons/edit.png" width="22px"/>
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="delete" controller="Item" arguments="{item : item.uid}"><img
+                            src="/typo3conf/ext/dynamic_map/Resources/Public/Icons/delete.png" width="22px"/>
+                    </f:link.action>
+                </td>
+            </tr>
+        </f:for>
+    </table>
+    <div class="btn-group">
+        <div class="col-md-6">
+            <f:link.action action="list" class="btn btn-success">Back to list</f:link.action>
+        </div>
+        <div class="col-md-6">
+            <f:link.action controller="Item" action="new" additionalParams="{tx_dynamicmap_web_dynamicmappi2:{stage:stage.uid}}" class="btn btn-success">
+                New Item
+            </f:link.action>
+        </div>
+    </div>
+
+</f:section>

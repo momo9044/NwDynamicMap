@@ -1,0 +1,45 @@
+<f:layout name="Default"/>
+
+This Template is responsible for displaying a single view for a domain object
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+Show.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+
+    <f:flashMessages/>
+    <h2>{stage.name}</h2>
+    <div id="buehne" class="beuhne-fe" style="max-width:{stage.width}px;max-height:{stage.height}px">
+        <f:image src="{stage.image.originalResource.publicUrl}" style="width:100%;height:auto;" class="stage-image"/>
+        <f:for each="{items}" as="item" iteration="iter">
+            <div class='bl dynamic_item draggable'
+                 style="
+                 left:<f:cObject typoscriptObjectPath='lib.math' data='(100*({item.position_x}/{stage.width}))'/>%;
+                 top:<f:cObject typoscriptObjectPath='lib.math' data='(100*({item.position_y}/{stage.height}))'/>%;
+                 background:#{item.circle_bg_color};
+                 border-color:#{item.circle_border_color}"
+            >
+                <a href="#item{iter.index}-{stage.uid}" class="lightbox-link">{item.number}</a>
+            </div>
+        </f:for>
+
+
+    </div>
+
+    <f:for each="{items}" as="item" iteration="iter">
+        <div class="dynamic-map-lightbox item-description" id="item{iter.index}-{stage.uid}" >
+            <div class="dynamic-map-lightbox-inner">
+                <a class="btn btn-default close-btn" data-dynamicmap="#item{iter.index}-{stage.uid}">X</a>
+                {item.description}
+            </div>
+
+        </div>
+    </f:for>
+
+</f:section>
